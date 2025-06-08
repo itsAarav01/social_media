@@ -4,20 +4,155 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aarav Sharma Profile</title>
-  <link rel="stylesheet" href="styles.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 120px;
+      text-align: center;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    .profile-pic {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #ff6600;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      color: #ff6600;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .email {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .email i {
+      color: #ff6600;
+      margin-right: 8px;
+    }
+
+    .social-links {
+      margin: 15px 0;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: #333;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ff6600;
+    }
+
+    .intro-text {
+      max-width: 800px;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      padding: 0 15px;
+      min-height: 50px;
+    }
+
+    .quote {
+      margin-top: 30px;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: #ff6600;
+      font-weight: bold;
+    }
+
+    .blink-caret {
+      border-right: 2px solid #ff6600;
+      animation: blink 0.7s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #ff6600; }
+    }
+  </style>
 </head>
 <body>
+
   <div class="container">
-    <h1 class="fade-in" style="color:aqua">Aarav Sharma</h1>
-   
-    <p>Let's Connect..</p>
-    <div class="social-links fade-in delay-3">
-        <a href="https://wa.me/+918860058775" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/not_your_aarav__?utm_source=qr&igsh=MWRmYjM4Mm91OTA0aA%3D%3D" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.snapchat.com/add/aarav239044?share_id=dap9lJDffus&locale=en-US " target="_blank" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+    <div class="header-row">
+      <div class="profile-pic">
+        <img src="bike.png" alt="Profile Photo" />
       </div>
-      
+      <h1>Aarav Sharma</h1>
+    </div>
+
+    <div class="email">
+      <i class="fas fa-envelope"></i> anmolkumar07478@gmail.com
+    </div>
+
+    <p>Let's Connect..</p>
+
+    <div class="social-links">
+      <a href="https://wa.me/+918860058775" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/not_your_aarav__?utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.snapchat.com/add/aarav239044" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+    </div>
+
+    <div class="intro-text">
+      <span id="dynamicText"></span><span class="blink-caret"></span>
+    </div>
+
+    <div class="quote">
+      "Four wheels move the body, two wheels move the soul."
+    </div>
   </div>
+
+  <script>
+    const text = "I'm a passionate biker and Tech enthusiast. Let's ride and throttle the creativity!";
+    const target = document.getElementById("dynamicText");
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        target.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 40); // typing speed
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+
 </body>
 </html>
